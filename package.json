@@ -1,6 +1,8 @@
 {
   "name": "node-api-crud",
   "version": "1.0.0",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
-

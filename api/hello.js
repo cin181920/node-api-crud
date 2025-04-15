@@ -1,5 +1,3 @@
-
-// Middleware untuk menangani rute yang tidak ditemukan
-app.use((req, res) => {
-  res.status(404).json({ error: "Halaman tidak ditemukan" });
-});
+module.exports = (req, res) => {
+    res.status(200).json({ message: "Halo dari API Hello!" });
+};

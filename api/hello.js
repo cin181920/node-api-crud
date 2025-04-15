@@ -1,5 +1,5 @@
 
-export default function handler(req, res) {
-    res.status(200).json({ message: "Hello from Vercel API!" });
-  }
-  
+// Middleware untuk menangani rute yang tidak ditemukan
+app.use((req, res) => {
+  res.status(404).json({ error: "Halaman tidak ditemukan" });
+});

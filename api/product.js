@@ -1,20 +1,25 @@
-import { json } from 'micro';
+const express = require('express');
+const app = express();
 
-let products = [
-  { id: 1, name: "Sandal", price: 50000 },
-  { id: 2, name: "Sepatu", price: 150000 },
-];
+// Rute untuk halaman utama ('/')
+app.get('/', (req, res) => {
+    res.json({ message: "Selamat datang di aplikasi Node.js API!" });
+});
 
-export default async function handler(req, res) {
-  if (req.method === 'GET') {
-    res.status(200).json(products);
-  } else if (req.method === 'POST') {
-    const body = await json(req);
-    products.push(body);
-    res.status(201).json(body);
-  } else {
-    res.status(405).json({ message: "Method not allowed" });
-  }
-}
+// Endpoint API lainnya
+app.get('/api/hello', (req, res) => {
+    res.json({ message: "Halo, dunia!" });
+});
+
+app.get('/api/product', (req, res) => {
+    res.json({ products: [{ id: 1, name: "Produk A" }, { id: 2, name: "Produk B" }] });
+});
+
+// Menentukan port untuk server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Server berjalan di port ${port}`);
+});
+
 
   

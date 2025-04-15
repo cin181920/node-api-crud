@@ -10,11 +10,11 @@ let products = [
 ];
 
 // CRUD routes
-app.get('/products', (req, res) => {
+app.get('/', (req, res) => {
   res.json(products);
 });
 
-app.get('/products/:id', (req, res) => {
+app.get('/:id', (req, res) => {
   const { id } = req.params;
   const product = products.find(p => p.id === parseInt(id));
   if (product) {
@@ -24,7 +24,7 @@ app.get('/products/:id', (req, res) => {
   }
 });
 
-app.post('/products', (req, res) => {
+app.post('/', (req, res) => {
   const { name, price } = req.body;
   if (!name || !price) {
     return res.status(400).json({ message: "Nama dan harga produk diperlukan" });
@@ -38,7 +38,7 @@ app.post('/products', (req, res) => {
   res.status(201).json(newProduct);
 });
 
-app.put('/products/:id', (req, res) => {
+app.put('/:id', (req, res) => {
   const { id } = req.params;
   const { name, price } = req.body;
   const product = products.find(p => p.id === parseInt(id));

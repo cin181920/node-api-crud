@@ -1,0 +1,11 @@
+{
+  "name": "my-vercel-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "micro": "^9.3.4"
+  },
+  "scripts": {
+    "start": "vercel dev"
+  }
+}

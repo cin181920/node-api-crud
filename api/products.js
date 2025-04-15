@@ -6,6 +6,10 @@ import { parse } from 'url';
 const app = express();
 app.use(bodyParser.json());
 
+export default function handler(req, res) {
+    app(req, res);
+  }
+
 let products = [
     { id: 1, name: 'Produk A', price: 100 },
     { id: 2, name: 'Produk B', price: 150 }

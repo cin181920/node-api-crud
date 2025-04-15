@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 const app = express();
 app.use(bodyParser.json()); // Untuk parsing JSON dari request body
 
+
 // Data sementara (misalnya data produk)
 let products = [
     { id: 1, name: 'Produk A', price: 100 },
@@ -14,6 +15,7 @@ let products = [
 app.get('api/products', (req, res) => {
     res.json(products);
 });
+
 
 // Route untuk mendapatkan produk berdasarkan ID (Read)
 app.get('api/products/:id', (req, res) => {

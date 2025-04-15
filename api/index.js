@@ -11,12 +11,12 @@ let products = [
 ];
 
 // Route untuk mendapatkan semua produk (Read)
-app.get('/products', (req, res) => {
+app.get('api/products', (req, res) => {
     res.json(products);
 });
 
 // Route untuk mendapatkan produk berdasarkan ID (Read)
-app.get('/products/:id', (req, res) => {
+app.get('api/products/:id', (req, res) => {
     const { id } = req.params;
     const product = products.find(p => p.id === parseInt(id));
     if (product) {
@@ -27,7 +27,7 @@ app.get('/products/:id', (req, res) => {
 });
 
 // Route untuk membuat produk baru (Create)
-app.post('/products', (req, res) => {
+app.post('api/products', (req, res) => {
     const { name, price } = req.body;
     if (!name || !price) {
         return res.status(400).json({ message: "Nama dan harga produk diperlukan" });
@@ -44,7 +44,7 @@ app.post('/products', (req, res) => {
 });
 
 // Route untuk memperbarui produk (Update)
-app.put('/products/:id', (req, res) => {
+app.put('api/products/:id', (req, res) => {
     const { id } = req.params;
     const { name, price } = req.body;
 
@@ -61,7 +61,7 @@ app.put('/products/:id', (req, res) => {
 });
 
 // Route untuk menghapus produk (Delete)
-app.delete('/products/:id', (req, res) => {
+app.delete('api/products/:id', (req, res) => {
     const { id } = req.params;
     const index = products.findIndex(p => p.id === parseInt(id));
     
